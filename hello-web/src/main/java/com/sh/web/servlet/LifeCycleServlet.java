@@ -16,23 +16,24 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet 생명주기
  * - HttpServlet 상속
- * - tomcat 에 의해서 싱글턴(프로그램당 객체를 하나만 만들어서 재사용하는 패턴) 객체로 관리 - 재사용성 높임
+ * - tomcat에 의해서 싱글턴객체(프로그램당 객체를 하나만 만들어서 재사용하는 패턴)로 관리
  * 
  * 1. 최초 요청시 servlet 객체 생성
- * 2. @PostConstruct 메소드 호출 
+ * 2. @PostConstruct 메소드 호출
  * 3. 설정메소드 init 호출
+ * 
  * 
  * 4. 실제요청시 service 호출
  * 5. 전송방식별로 doGet, doPost 등이 호출
  * 
- * 6. destroy 메소드 호출 (자원반납)
+ * 6. destroy메소드 호출
  * 7. @PreDestroy 메소드 호출
- * 8. 자원반납 
- * 
+ * 8. 자원반납
+ *
  */
 @WebServlet("/lifecycle.do")
-public class LifeCycleServlet extends HttpServlet{
-	
+public class LifeCycleServlet extends HttpServlet {
+ 
 	public LifeCycleServlet() {
 		System.out.println("1. 생성자 호출! " + this);
 	}
@@ -49,7 +50,7 @@ public class LifeCycleServlet extends HttpServlet{
 	
 	@Override
 	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
-		System.out.println("4. service" + this);
+		System.out.println("4. service " + this);
 		super.service(req, res);
 	}
 	
@@ -67,4 +68,5 @@ public class LifeCycleServlet extends HttpServlet{
 	public void preDestroy() {
 		System.out.println("7. @PreDestroy");
 	}
+	
 }

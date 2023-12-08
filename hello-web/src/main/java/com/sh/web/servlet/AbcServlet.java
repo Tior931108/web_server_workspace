@@ -18,9 +18,9 @@ public class AbcServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("/abc.do 요청!");
 		
-		// 리다이렉트 (302 응답) : 다시 연결할지 물어보지 않고, 바로 요청을 보냄
+		// 리다이렉트
 		// 클라이언트에게 location으로 재요청을 지시
-		response.sendRedirect(request.getContextPath() + "/xyz.do"); // /hello-web/xyz.do
+		response.sendRedirect(request.getContextPath() + "/xyz.do"); // /hell-web
 	}
 
 }
